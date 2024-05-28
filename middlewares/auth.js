@@ -1,5 +1,3 @@
-
-
 const jwt = require('jsonwebtoken');
 
 // This function verifies the JWT token

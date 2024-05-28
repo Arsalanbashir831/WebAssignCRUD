@@ -24,7 +24,7 @@ mongoose.connect(uri, {
   console.error('Error connecting to MongoDB Atlas', err);
 });
 
-app.use('/api', verifyToken ,userRoutes);
+app.use('/users', verifyToken ,userRoutes);
 app.use('/auth',AuthRoutes)
 
 // Define a simple route
