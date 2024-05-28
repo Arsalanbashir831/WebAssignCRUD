@@ -1,5 +1,6 @@
 const User = require('../models/userModel');
 
+
 // Create a new user
 exports.createUser = async (req, res) => {
   try {
@@ -59,3 +60,6 @@ exports.deleteUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+

@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const verifyToken = require('./middlewares/auth');
 require('dotenv').config(); // Ensure you have this package installed with `npm install dotenv`
 const userRoutes = require('./routes/usersRoutes');
-
+const AuthRoutes = require('./routes/AuthRoutes')
 
 // Create an Express application
 const app = express();
@@ -23,7 +24,8 @@ mongoose.connect(uri, {
   console.error('Error connecting to MongoDB Atlas', err);
 });
 
-app.use('/api', userRoutes);
+app.use('/api', verifyToken ,userRoutes);
+app.use('/auth',AuthRoutes)
 
 // Define a simple route
 app.get('/', (req, res) => {
