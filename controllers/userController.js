@@ -61,5 +61,23 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
+exports.searchUser = async (req, res) => {
+  try {
+    const { name, email } = req.query;
+    let query = {};
 
+    if (name) {
+      query.name = { $regex: name, $options: 'i' }; // Case insensitive regex search
+    }
+
+    if (email) {
+      query.email = { $regex: email, $options: 'i' }; // Case insensitive regex search
+    }
+
+    const users = await User.find(query);
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 

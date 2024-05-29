@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 // MongoDB Atlas connection URI from environment variables
-const uri = process.env.MONGODB_URI || 'mongodb+srv://Arsalan_2001:KI1aRpQbL1J4gfBa@cluster0.bv1tz8o.mongodb.net/webtask?retryWrites=true&w=majority&appName=Cluster0';
+const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
 
 // Connect to MongoDB Atlas
 mongoose.connect(uri, {
